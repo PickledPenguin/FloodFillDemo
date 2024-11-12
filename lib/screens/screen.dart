@@ -126,30 +126,35 @@ class _ImageSelectorScreenState extends State<ImageSelectorScreen> {
     }
   }
 
-  // Widget build method to render the screen
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Image Selector Tool'),
       ),
-      body: Column(
-        children: [
-          // Display image if selected
-          if (_imageBytes != null)
-            Expanded(
-              child: GestureDetector(
-                onTapDown: _onTapDown,  // Handle taps on the image
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            // Display the selected image with outline drawing
+            if (_imageBytes != null)
+              GestureDetector(
+                onTapDown: _onTapDown, // Handle taps on the image
                 child: LayoutBuilder(
                   builder: (context, constraints) {
                     double imageWidth = constraints.maxWidth;
-                    double imageHeight = (imageWidth * _selectedImage!.height) / _selectedImage!.width;
+                    double imageHeight = (_selectedImage != null)
+                        ? (imageWidth * _selectedImage!.height) / _selectedImage!.width
+                        : 0.0;
 
-                    // Store image dimensions
+                    // Store the current image dimensions
                     _imageWidth = imageWidth;
                     _imageHeight = imageHeight;
 
-                    return SingleChildScrollView(
+                    return ConstrainedBox(
+                      constraints: BoxConstraints(
+                        maxHeight: imageHeight,
+                      ),
                       child: Center(
                         child: Stack(
                           children: [
@@ -159,15 +164,17 @@ class _ImageSelectorScreenState extends State<ImageSelectorScreen> {
                               width: imageWidth,
                               height: imageHeight,
                             ),
-                            // CustomPainter to draw the outline
-                            CustomPaint(
-                              painter: OutlinePainter(
-                                _outlinePoints,
-                                scaleX: _imageWidth / _selectedImage!.width,
-                                scaleY: _imageHeight / _selectedImage!.height,
-                                tapPosition: _tapPosition,
+                            // Draw the outline on top of the image using a custom painter
+                            if (_outlinePoints.isNotEmpty)
+                              CustomPaint(
+                                painter: OutlinePainter(
+                                  _outlinePoints,
+                                  scaleX: _imageWidth / _selectedImage!.width,
+                                  scaleY: _imageHeight / _selectedImage!.height,
+                                  tapPosition: _tapPosition,
+                                ),
+                                size: Size(imageWidth, imageHeight),
                               ),
-                            ),
                           ],
                         ),
                       ),
@@ -175,71 +182,74 @@ class _ImageSelectorScreenState extends State<ImageSelectorScreen> {
                   },
                 ),
               ),
+            const SizedBox(height: 20),
+
+            // Button to pick an image
+            ElevatedButton(
+              onPressed: _pickImage,
+              child: const Text('Pick Image'),
             ),
-          const SizedBox(height: 20),
-          // Button to pick an image
-          ElevatedButton(
-            onPressed: _pickImage,
-            child: const Text('Pick Image'),
-          ),
-          const SizedBox(height: 20),
+            const SizedBox(height: 20),
 
-          // Tolerance slider for outline calculation
-          Text('Tolerance: ${_tolerance.toInt()}%'),
-          Slider(
-            min: 0,
-            max: 100,
-            divisions: 100,
-            value: _tolerance,
-            label: '${_tolerance.toInt()}%',
-            onChanged: (value) {
-              setState(() {
-                _tolerance = value;  // Update tolerance
-              });
-            },
-          ),
-          // Button to apply the outline with the selected tolerance
-          ElevatedButton(
-            onPressed: _drawOutline,
-            child: const Text('Apply Tolerance'),
-          ),
-
-          const SizedBox(height: 20),
-
-          // Checkbox to enable or disable filtering
-          CheckboxListTile(
-            title: const Text('Filter Selection'),
-            value: _enableFiltering,
-            onChanged: (value) {
-              setState(() {
-                _enableFiltering = value!;
-              });
-            },
-          ),
-
-          // Filtering controls (only visible if filtering is enabled)
-          if (_enableFiltering) ...[
-            Text('Filtering sections with < ${_filterStrength.toInt()} pixels'),
+            // Tolerance slider for outline calculation
+            Text('Tolerance: ${_tolerance.toInt()}%'),
             Slider(
               min: 0,
-              max: 200,
-              divisions: 200,
-              value: _filterStrength,
-              label: '${_filterStrength.toInt()} px',
+              max: 100,
+              divisions: 100,
+              value: _tolerance,
+              label: '${_tolerance.toInt()}%',
               onChanged: (value) {
                 setState(() {
-                  _filterStrength = value;  // Update filter strength
+                  _tolerance = value; // Update tolerance
                 });
               },
             ),
-            // Button to apply filtering
+
+            // Button to apply the outline with the selected tolerance
             ElevatedButton(
-              onPressed: _applyFiltering,
-              child: const Text('Apply Filtering'),
+              onPressed: _drawOutline,
+              child: const Text('Apply Tolerance'),
             ),
+            const SizedBox(height: 20),
+
+            // Checkbox to enable or disable filtering
+            CheckboxListTile(
+              title: const Text('Filter Selection'),
+              value: _enableFiltering,
+              onChanged: (value) {
+                setState(() {
+                  _enableFiltering = value!;
+                });
+              },
+            ),
+
+            // Filtering controls (only visible if filtering is enabled)
+            if (_enableFiltering) ...[
+              Text('Filtering sections with ${_filterStrength.toInt()} pixels'),
+              Slider(
+                min: 0,
+                max: 200,
+                divisions: 200,
+                value: _filterStrength,
+                label: '${_filterStrength.toInt()} px',
+                onChanged: (value) {
+                  setState(() {
+                    _filterStrength = value; // Update filter strength
+                  });
+                },
+              ),
+              // Button to apply filtering
+              ElevatedButton(
+                onPressed: _applyFiltering,
+                child: const Text('Apply Filtering'),
+              ),
+            ],
           ],
-        ],
+        ),
       ),
     );
   }
+
+
 }
