@@ -82,7 +82,7 @@ class _ImageSelectorScreenState extends State<ImageSelectorScreen> {
   void _applyFiltering() {
     setState(() {
       // Filter clusters of points based on filter strength
-      _outlinePoints = filterClusters(_outlinePoints, minSize: (100 - _filterStrength).toInt());
+      _outlinePoints = filterClusters(_outlinePoints, minSize: _filterStrength.toInt());
     });
   }
 
@@ -213,22 +213,19 @@ class _ImageSelectorScreenState extends State<ImageSelectorScreen> {
             onChanged: (value) {
               setState(() {
                 _enableFiltering = value!;
-                if (_enableFiltering) {
-                  _applyFiltering();  // Apply filtering immediately if enabled
-                }
               });
             },
           ),
 
           // Filtering controls (only visible if filtering is enabled)
           if (_enableFiltering) ...[
-            Text('Filtering Strength: ${_filterStrength.toInt()}%'),
+            Text('Filtering sections with < ${_filterStrength.toInt()} pixels'),
             Slider(
               min: 0,
-              max: 100,
-              divisions: 100,
+              max: 200,
+              divisions: 200,
               value: _filterStrength,
-              label: '${_filterStrength.toInt()}%',
+              label: '${_filterStrength.toInt()} px',
               onChanged: (value) {
                 setState(() {
                   _filterStrength = value;  // Update filter strength
