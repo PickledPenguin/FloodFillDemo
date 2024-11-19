@@ -29,7 +29,7 @@ class _ImageSelectorScreenState extends State<ImageSelectorScreen> {
   Offset? _tapPosition;  // Position where the user tapped on the image
   bool _enableFiltering = false;  // Flag to toggle filtering on/off
   List<Offset> _polylinePoints = []; // For polylines
-  double _polylineTolerance = 1.0;  // For polyline tolerance
+  double _polylineTolerance = 70.0;  // For polyline tolerance
 
   // Method to pick an image from the gallery
   Future<void> _pickImage() async {

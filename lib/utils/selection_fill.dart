@@ -29,7 +29,8 @@ List<Offset> getOutline(img.Image image, int startX, int startY, double toleranc
     final currentColor = image.getPixel(x, y);  // Get the color of the current pixel
 
     // Compare the color of the current pixel to the target color. If the difference exceeds the tolerance, add to the outline
-    if (_colorDifference(targetColor, currentColor) > tolerance) {
+    // Also add the point to the outline if it is right next to the border of the image
+    if (_colorDifference(targetColor, currentColor) > tolerance || (x < 1 || y < 1 || x >= width -1 || y >= height -1)) {
       outlinePoints.add(Offset(x.toDouble(), y.toDouble()));  // Add the current point as part of the outline
       continue;  // Continue to the next pixel
     }
