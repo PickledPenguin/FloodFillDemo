@@ -4,6 +4,7 @@ import 'package:image_picker/image_picker.dart';  // For picking images from gal
 import 'package:image/image.dart' as img;  // For image manipulation
 import '../utils/selection_fill.dart';  // Selection and fill logic
 import '../widgets/outline_painter.dart';  // Custom painter to draw the outline
+import '../utils/rdp_algorithm.dart';
 
 // StatefulWidget for selecting and processing the image
 class ImageSelectorScreen extends StatefulWidget {
@@ -27,6 +28,8 @@ class _ImageSelectorScreenState extends State<ImageSelectorScreen> {
   double _imageHeight = 0;  // Height of the image on screen
   Offset? _tapPosition;  // Position where the user tapped on the image
   bool _enableFiltering = false;  // Flag to toggle filtering on/off
+  List<Offset> _polylinePoints = []; // For polylines
+  double _polylineTolerance = 1.0;  // For polyline tolerance
 
   // Method to pick an image from the gallery
   Future<void> _pickImage() async {
@@ -126,6 +129,19 @@ class _ImageSelectorScreenState extends State<ImageSelectorScreen> {
     }
   }
 
+  void _generatePolyline() {
+    setState(() {
+      // Use the RDP algorithm to simplify the outline points
+      List<Offset> simplifiedPoints = simplifyPolyline(_outlinePoints, _polylineTolerance);
+      
+      // Scale the polyline points to match the image size
+      _polylinePoints = simplifiedPoints.map((point) {
+        return Offset(point.dx, point.dy);
+      }).toList();
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -174,6 +190,15 @@ class _ImageSelectorScreenState extends State<ImageSelectorScreen> {
                                   tapPosition: _tapPosition,
                                 ),
                                 size: Size(imageWidth, imageHeight),
+                              ),
+                            // Draw the polyline if available
+                            if (_polylinePoints.isNotEmpty)
+                              CustomPaint(
+                                painter: PolylinePainter(
+                                  _polylinePoints,
+                                  scaleX: _imageWidth / _selectedImage!.width,
+                                  scaleY: _imageHeight / _selectedImage!.height,
+                                ),
                               ),
                           ],
                         ),
@@ -245,11 +270,36 @@ class _ImageSelectorScreenState extends State<ImageSelectorScreen> {
                 child: const Text('Apply Filtering'),
               ),
             ],
+
+            const SizedBox(height: 20),
+
+            // New Slider for adjusting polyline simplification tolerance
+            Text('Polyline Tolerance: ${_polylineTolerance.toStringAsFixed(1)}'),
+            Slider(
+              min: 0.1,
+              max: 100.0,
+              divisions: 99,
+              value: _polylineTolerance,
+              label: _polylineTolerance.toStringAsFixed(1),
+              onChanged: (value) {
+                setState(() {
+                  _polylineTolerance = value; // Update polyline tolerance
+                });
+              },
+            ),
+            const SizedBox(height: 10),
+
+            // Button to generate the polyline based on the current tolerance
+            ElevatedButton(
+              onPressed: _generatePolyline,
+              child: const Text('Generate Polylines'),
+            ),
           ],
         ),
       ),
     );
   }
+
 
 
 }

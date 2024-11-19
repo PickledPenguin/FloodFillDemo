@@ -1,5 +1,37 @@
 import 'package:flutter/material.dart';
 
+class PolylinePainter extends CustomPainter {
+  final List<Offset> polylinePoints;
+  final double scaleX;
+  final double scaleY;
+
+  PolylinePainter(this.polylinePoints, {required this.scaleX, required this.scaleY});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = Colors.blue
+      ..strokeWidth = 2.0
+      ..style = PaintingStyle.stroke;
+
+    // Draw the polyline by connecting the points
+    for (int i = 0; i < polylinePoints.length - 1; i++) {
+      final scaledPoint = Offset(polylinePoints[i].dx * scaleX, polylinePoints[i].dy * scaleY);
+      final scaledNextPoint = Offset(polylinePoints[i + 1].dx * scaleX, polylinePoints[i + 1].dy * scaleY);
+      // Draw a small circle for each node
+      canvas.drawCircle(scaledPoint, 3.0, paint);
+      // Draw the line between each point
+      canvas.drawLine(scaledPoint, scaledNextPoint, paint);
+    }
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return false; // Only repaint if points change
+  }
+}
+
+
 class OutlinePainter extends CustomPainter {
   final List<Offset> outlinePoints;
   final double scaleX;
