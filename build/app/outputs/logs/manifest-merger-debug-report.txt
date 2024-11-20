@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 application
-INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/android/app/src/main/AndroidManifest.xml:2:5-33:19
-INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/android/app/src/debug/AndroidManifest.xml
-MERGED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:8:5-32:19
-MERGED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:8:5-32:19
+INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/android/app/src/main/AndroidManifest.xml:2:5-33:19
+INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/android/app/src/debug/AndroidManifest.xml
+MERGED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:8:5-32:19
+MERGED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:8:5-32:19
 MERGED from [androidx.window:window:1.2.0] /Users/jadenschuster/.gradle/caches/transforms-3/3e108fe9d597d03770ae82acaebb5b63/transformed/jetified-window-1.2.0/AndroidManifest.xml:22:5-29:19
 MERGED from [androidx.window:window:1.2.0] /Users/jadenschuster/.gradle/caches/transforms-3/3e108fe9d597d03770ae82acaebb5b63/transformed/jetified-window-1.2.0/AndroidManifest.xml:22:5-29:19
 MERGED from [androidx.core:core:1.13.1] /Users/jadenschuster/.gradle/caches/transforms-3/c666c258fca39b3353b46678a6b928ab/transformed/core-1.13.1/AndroidManifest.xml:28:5-89
@@ -17,19 +17,19 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/jadenschuster/.gradl
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/jadenschuster/.gradle/caches/transforms-3/ee01e2b20f52029a052c42ac95f9e8b2/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/jadenschuster/.gradle/caches/transforms-3/ee01e2b20f52029a052c42ac95f9e8b2/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
 	android:extractNativeLibs
-		INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/android/app/src/debug/AndroidManifest.xml
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.13.1] /Users/jadenschuster/.gradle/caches/transforms-3/c666c258fca39b3353b46678a6b928ab/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
 	android:name
-		INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/android/app/src/main/AndroidManifest.xml
 manifest
-ADDED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/android/app/src/main/AndroidManifest.xml:1:1-45:12
-MERGED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/android/app/src/main/AndroidManifest.xml:1:1-45:12
-INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/android/app/src/debug/AndroidManifest.xml:1:1-7:12
-INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/android/app/src/debug/AndroidManifest.xml:1:1-7:12
-INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/android/app/src/debug/AndroidManifest.xml:1:1-7:12
-MERGED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-34:12
-MERGED from [:flutter_plugin_android_lifecycle] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/build/flutter_plugin_android_lifecycle/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+ADDED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/android/app/src/main/AndroidManifest.xml:1:1-45:12
+MERGED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/android/app/src/main/AndroidManifest.xml:1:1-45:12
+INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+MERGED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-34:12
+MERGED from [:flutter_plugin_android_lifecycle] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/build/flutter_plugin_android_lifecycle/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.fragment:fragment:1.7.1] /Users/jadenschuster/.gradle/caches/transforms-3/a49cd171355a6a39687e69f028c8bcbc/transformed/fragment-1.7.1/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.activity:activity:1.9.2] /Users/jadenschuster/.gradle/caches/transforms-3/2d91bc83866874eb6317ae5ae27d2dc9/transformed/jetified-activity-1.9.2/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.window:window:1.2.0] /Users/jadenschuster/.gradle/caches/transforms-3/3e108fe9d597d03770ae82acaebb5b63/transformed/jetified-window-1.2.0/AndroidManifest.xml:17:1-31:12
@@ -57,37 +57,37 @@ MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/jadenschuster/.gradle
 MERGED from [androidx.window.extensions.core:core:1.0.0] /Users/jadenschuster/.gradle/caches/transforms-3/6dde453803d512b3f23cc981e264e9e0/transformed/jetified-core-1.0.0/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.annotation:annotation-experimental:1.4.0] /Users/jadenschuster/.gradle/caches/transforms-3/6707c561045b071954f9f1d8398a2530/transformed/jetified-annotation-experimental-1.4.0/AndroidManifest.xml:2:1-7:12
 	package
-		INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/android/app/src/debug/AndroidManifest.xml
 	android:versionName
-		INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/android/app/src/debug/AndroidManifest.xml
 	android:versionCode
-		INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/android/app/src/debug/AndroidManifest.xml
 	xmlns:android
-		ADDED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/android/app/src/main/AndroidManifest.xml:1:11-69
+		ADDED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/android/app/src/main/AndroidManifest.xml:1:11-69
 queries
-ADDED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/android/app/src/main/AndroidManifest.xml:39:5-44:15
+ADDED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/android/app/src/main/AndroidManifest.xml:39:5-44:15
 intent#action:name:android.intent.action.PROCESS_TEXT+data:mimeType:text/plain
-ADDED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/android/app/src/main/AndroidManifest.xml:40:9-43:18
+ADDED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/android/app/src/main/AndroidManifest.xml:40:9-43:18
 action#android.intent.action.PROCESS_TEXT
-ADDED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/android/app/src/main/AndroidManifest.xml:41:13-72
+ADDED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/android/app/src/main/AndroidManifest.xml:41:13-72
 	android:name
-		ADDED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/android/app/src/main/AndroidManifest.xml:41:21-70
+		ADDED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/android/app/src/main/AndroidManifest.xml:41:21-70
 data
-ADDED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/android/app/src/main/AndroidManifest.xml:42:13-50
+ADDED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/android/app/src/main/AndroidManifest.xml:42:13-50
 	android:mimeType
-		ADDED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/android/app/src/main/AndroidManifest.xml:42:19-48
+		ADDED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/android/app/src/main/AndroidManifest.xml:42:19-48
 uses-permission#android.permission.INTERNET
-ADDED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/android/app/src/debug/AndroidManifest.xml:6:5-66
+ADDED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/android/app/src/debug/AndroidManifest.xml:6:5-66
 	android:name
-		ADDED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/android/app/src/debug/AndroidManifest.xml:6:22-64
+		ADDED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/android/app/src/debug/AndroidManifest.xml:6:22-64
 uses-sdk
-INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/android/app/src/debug/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/android/app/src/debug/AndroidManifest.xml
-INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/android/app/src/debug/AndroidManifest.xml
-MERGED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:6:5-44
-MERGED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:6:5-44
-MERGED from [:flutter_plugin_android_lifecycle] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/build/flutter_plugin_android_lifecycle/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:flutter_plugin_android_lifecycle] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/build/flutter_plugin_android_lifecycle/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/android/app/src/debug/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/android/app/src/debug/AndroidManifest.xml
+INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/android/app/src/debug/AndroidManifest.xml
+MERGED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:6:5-44
+MERGED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:6:5-44
+MERGED from [:flutter_plugin_android_lifecycle] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/build/flutter_plugin_android_lifecycle/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_plugin_android_lifecycle] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/build/flutter_plugin_android_lifecycle/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [androidx.fragment:fragment:1.7.1] /Users/jadenschuster/.gradle/caches/transforms-3/a49cd171355a6a39687e69f028c8bcbc/transformed/fragment-1.7.1/AndroidManifest.xml:5:5-44
 MERGED from [androidx.fragment:fragment:1.7.1] /Users/jadenschuster/.gradle/caches/transforms-3/a49cd171355a6a39687e69f028c8bcbc/transformed/fragment-1.7.1/AndroidManifest.xml:5:5-44
 MERGED from [androidx.activity:activity:1.9.2] /Users/jadenschuster/.gradle/caches/transforms-3/2d91bc83866874eb6317ae5ae27d2dc9/transformed/jetified-activity-1.9.2/AndroidManifest.xml:20:5-44
@@ -141,47 +141,47 @@ MERGED from [androidx.window.extensions.core:core:1.0.0] /Users/jadenschuster/.g
 MERGED from [androidx.annotation:annotation-experimental:1.4.0] /Users/jadenschuster/.gradle/caches/transforms-3/6707c561045b071954f9f1d8398a2530/transformed/jetified-annotation-experimental-1.4.0/AndroidManifest.xml:5:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.4.0] /Users/jadenschuster/.gradle/caches/transforms-3/6707c561045b071954f9f1d8398a2530/transformed/jetified-annotation-experimental-1.4.0/AndroidManifest.xml:5:5-44
 	android:targetSdkVersion
-		INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/android/app/src/debug/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/android/app/src/debug/AndroidManifest.xml
 provider#io.flutter.plugins.imagepicker.ImagePickerFileProvider
-ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:9-17:20
+ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:9-17:20
 	android:grantUriPermissions
-		ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-47
+		ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-47
 	android:authorities
-		ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-74
+		ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-74
 	android:exported
-		ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-37
+		ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-37
 	android:name
-		ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:13-82
+		ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:13-82
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-16:75
+ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-16:75
 	android:resource
-		ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:16:17-72
+		ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:16:17-72
 	android:name
-		ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:15:17-67
+		ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:15:17-67
 service#com.google.android.gms.metadata.ModuleDependencies
-ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:19:9-31:19
+ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:19:9-31:19
 	android:enabled
-		ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:21:13-36
+		ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:21:13-36
 	android:exported
-		ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-37
+		ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-37
 	tools:ignore
-		ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-40
+		ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-40
 	android:name
-		ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:20:13-78
+		ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:20:13-78
 intent-filter#action:name:com.google.android.gms.metadata.MODULE_DEPENDENCIES
-ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:24:13-26:29
+ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:24:13-26:29
 action#com.google.android.gms.metadata.MODULE_DEPENDENCIES
-ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:25:17-94
+ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:25:17-94
 	android:name
-		ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:25:25-91
+		ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:25:25-91
 meta-data#photopicker_activity:0:required
-ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:28:13-30:36
+ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:28:13-30:36
 	android:value
-		ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:30:17-33
+		ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:30:17-33
 	android:name
-		ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:29:17-63
+		ADDED from [:image_picker_android] /Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:29:17-63
 uses-library#androidx.window.extensions
 ADDED from [androidx.window:window:1.2.0] /Users/jadenschuster/.gradle/caches/transforms-3/3e108fe9d597d03770ae82acaebb5b63/transformed/jetified-window-1.2.0/AndroidManifest.xml:23:9-25:40
 	android:required

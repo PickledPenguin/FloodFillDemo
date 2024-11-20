@@ -4,7 +4,7 @@
             "outputFile": "com.example.flood_fill_demo.app-mergeDebugResources-24:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/flood_fill_demo/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/Users/jadenschuster/Documents/Collage/Fall2024/Senior Project/FloodFillDemo/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
