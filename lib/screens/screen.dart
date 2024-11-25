@@ -229,15 +229,21 @@ class _ImageSelectorScreenState extends State<ImageSelectorScreen> {
             const SizedBox(height: 50),
 
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.center, // Align vertically
               children: [
-                Flexible (
-                  flex: 5,
-                  child:
-                    Center(
-                      child:
-                        Column(
-                          children: [// Tolerance slider for outline calculation
+                // Left section with sliders
+                Expanded(
+                  flex: 3, // Adjust flex to control space distribution
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min, // Prevent infinite height
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      // Tolerance slider
+                      Flexible(
+                        fit: FlexFit.loose,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
                             Text('Tolerance: ${_tolerance.toInt()}%'),
                             Slider(
                               min: 0,
@@ -251,35 +257,18 @@ class _ImageSelectorScreenState extends State<ImageSelectorScreen> {
                                 });
                               },
                             ),
-                          ]
+                          ],
                         ),
-                    ),
-                ),
+                      ),
+                      const SizedBox(height: 10), // Add spacing
 
-                // Button to apply the outline with the selected tolerance
-                FloatingActionButton(
-                  onPressed: _updateDrawings,
-                  tooltip: 'Apply Tolerance', // Optional tooltip
-                  child: const Icon(Icons.palette), // Use a checkmark icon
-                ),
-
-                // Add a spacer to create some distance
-                const Spacer(flex: 1),
-              ]
-            ),
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children:[
-                Flexible (
-                  flex: 5,
-                  child:
-                    Center(
-                      child:
-                        Column(
+                      // Polyline complexity slider
+                      Flexible(
+                        fit: FlexFit.loose,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            // New Slider for adjusting polyline complexity
-                            const Text('Polyline Complexity: '),
+                            const Text('Polyline Complexity:'),
                             Slider(
                               min: _polylineToleranceMinMax["min"]!,
                               max: _polylineToleranceMinMax["max"]!,
@@ -287,30 +276,39 @@ class _ImageSelectorScreenState extends State<ImageSelectorScreen> {
                               value: _polylineTolerance,
                               onChanged: (value) {
                                 setState(() {
-                                  _polylineTolerance = value; // Update polyline tolerance in inverse (more complex = less tolerance)
+                                  _polylineTolerance = value; // Update polyline tolerance
                                 });
                               },
                             ),
-                            const SizedBox(height: 10),
-                          ]
+                          ],
                         ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                // Spacer for separation
+                const SizedBox(width: 20),
+
+                // Right section with button
+                Align(
+                  alignment: Alignment.center,
+                  child: SizedBox(
+                    width: 50, // Allow width to match as needed
+                    height: 100, // Match approximate height of sliders
+                    child: FloatingActionButton(
+                      onPressed: _updateDrawings,
+                      tooltip: 'Generate Polylines',
+                      child: const Icon(Icons.polyline),
                     ),
+                  ),
                 ),
 
-                // Button to generate the polyline based on the current tolerance
-                FloatingActionButton(
-                  onPressed: _updateDrawings,
-                  tooltip: 'Generate Polylines', // Optional tooltip
-                  child: const Icon(Icons.polyline), // Use a polyline icon
-                ),
-
-                // Add a spacer to create some distance
-                const Spacer(flex: 1),
-
-              ]
+                // Spacer for separation
+                const SizedBox(width: 20),
+              ],
             ),
 
-            const SizedBox(height: 20),
 
             // Checkbox to toggle red outline visibility
             Row(
