@@ -23,13 +23,14 @@ class _ImageSelectorScreenState extends State<ImageSelectorScreen> {
 
   // Variables for controlling the outline process
   double _tolerance = 30.0;  // Base tolerance for color difference in outline detection
-  double _filterStrength = 0.0;  // Base strength of filtering applied to outline points
   double _imageWidth = 0;  // Width of the image on screen
   double _imageHeight = 0;  // Height of the image on screen
   Offset? _tapPosition;  // Position where the user tapped on the image
-  bool _enableFiltering = false;  // Flag to toggle filtering on/off
   List<Offset> _polylinePoints = []; // For polylines
   double _polylineTolerance = 70.0;  // For polyline tolerance
+
+  // Variables to control Advanced Settings
+  Map<String,double> _polylineToleranceMinMax = {"min": 0.1, "max": 100.0};
 
   // Method to pick an image from the gallery
   Future<void> _pickImage() async {
@@ -59,9 +60,14 @@ class _ImageSelectorScreenState extends State<ImageSelectorScreen> {
         setState(() {
           _tapPosition = Offset(x.toDouble(), y.toDouble());  // Update tap position
         });
-        _drawOutline();  // Trigger outline drawing based on tap position
+        _updateDrawings();  // Trigger outline drawing based on tap position
       }
     }
+  }
+
+  void _updateDrawings(){
+    _drawOutline();
+    _generatePolyline();
   }
 
   // Method to draw the outline around the selected region
@@ -74,19 +80,8 @@ class _ImageSelectorScreenState extends State<ImageSelectorScreen> {
       final outlinePoints = getOutline(_selectedImage!, x, y, _tolerance);
       setState(() {
         _outlinePoints = outlinePoints;  // Update the list of outline points
-        if (_enableFiltering) {
-          _applyFiltering();  // Apply filtering if enabled
-        }
       });
     }
-  }
-
-  // Method to apply filtering on the outline points based on strength
-  void _applyFiltering() {
-    setState(() {
-      // Filter clusters of points based on filter strength
-      _outlinePoints = filterClusters(_outlinePoints, minSize: _filterStrength.toInt());
-    });
   }
 
   // Method to filter out smaller clusters of points from the outline points
@@ -132,7 +127,10 @@ class _ImageSelectorScreenState extends State<ImageSelectorScreen> {
   void _generatePolyline() {
     setState(() {
       // Use the RDP algorithm to simplify the outline points
-      List<Offset> simplifiedPoints = simplifyPolyline(_outlinePoints, _polylineTolerance);
+
+      double polylineToleranceAdjusted = _polylineToleranceMinMax["max"]! - _polylineTolerance;
+
+      List<Offset> simplifiedPoints = simplifyPolyline(_outlinePoints, polylineToleranceAdjusted);
       
       // Scale the polyline points to match the image size
       _polylinePoints = simplifiedPoints.map((point) {
@@ -210,89 +208,102 @@ class _ImageSelectorScreenState extends State<ImageSelectorScreen> {
             const SizedBox(height: 20),
 
             // Button to pick an image
-            ElevatedButton(
-              onPressed: _pickImage,
-              child: const Text('Pick Image'),
-            ),
-            const SizedBox(height: 20),
-
-            // Tolerance slider for outline calculation
-            Text('Tolerance: ${_tolerance.toInt()}%'),
-            Slider(
-              min: 0,
-              max: 100,
-              divisions: 100,
-              value: _tolerance,
-              label: '${_tolerance.toInt()}%',
-              onChanged: (value) {
-                setState(() {
-                  _tolerance = value; // Update tolerance
-                });
-              },
+            Center (
+              child:
+                SizedBox(
+                  height: 150,
+                  width: 150,
+                  child:
+                    FloatingActionButton(
+                      onPressed: _pickImage,
+                      tooltip: "Pick Image",
+                      child: const Icon(Icons.image),
+                    ),
+                ),
             ),
 
-            // Button to apply the outline with the selected tolerance
-            ElevatedButton(
-              onPressed: _drawOutline,
-              child: const Text('Apply Tolerance'),
+            const SizedBox(height: 50),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Flexible (
+                  flex: 5,
+                  child:
+                    Center(
+                      child:
+                        Column(
+                          children: [// Tolerance slider for outline calculation
+                            Text('Tolerance: ${_tolerance.toInt()}%'),
+                            Slider(
+                              min: 0,
+                              max: 100,
+                              divisions: 100,
+                              value: _tolerance,
+                              label: '${_tolerance.toInt()}%',
+                              onChanged: (value) {
+                                setState(() {
+                                  _tolerance = value; // Update tolerance
+                                });
+                              },
+                            ),
+                          ]
+                        ),
+                    ),
+                ),
+
+                // Button to apply the outline with the selected tolerance
+                FloatingActionButton(
+                  onPressed: _updateDrawings,
+                  tooltip: 'Apply Tolerance', // Optional tooltip
+                  child: const Icon(Icons.palette), // Use a checkmark icon
+                ),
+
+                // Add a spacer to create some distance
+                const Spacer(flex: 1),
+              ]
             ),
-            const SizedBox(height: 20),
 
-            // Checkbox to enable or disable filtering
-            CheckboxListTile(
-              title: const Text('Filter Selection'),
-              value: _enableFiltering,
-              onChanged: (value) {
-                setState(() {
-                  _enableFiltering = value!;
-                });
-              },
-            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children:[
+                Flexible (
+                  flex: 5,
+                  child:
+                    Center(
+                      child:
+                        Column(
+                          children: [
+                            // New Slider for adjusting polyline complexity
+                            const Text('Polyline Complexity: '),
+                            Slider(
+                              min: _polylineToleranceMinMax["min"]!,
+                              max: _polylineToleranceMinMax["max"]!,
+                              divisions: 99,
+                              value: _polylineTolerance,
+                              onChanged: (value) {
+                                setState(() {
+                                  _polylineTolerance = value; // Update polyline tolerance in inverse (more complex = less tolerance)
+                                });
+                              },
+                            ),
+                            const SizedBox(height: 10),
+                          ]
+                        ),
+                    ),
+                ),
 
-            // Filtering controls (only visible if filtering is enabled)
-            if (_enableFiltering) ...[
-              Text('Filtering sections with ${_filterStrength.toInt()} pixels'),
-              Slider(
-                min: 0,
-                max: 200,
-                divisions: 200,
-                value: _filterStrength,
-                label: '${_filterStrength.toInt()} px',
-                onChanged: (value) {
-                  setState(() {
-                    _filterStrength = value; // Update filter strength
-                  });
-                },
-              ),
-              // Button to apply filtering
-              ElevatedButton(
-                onPressed: _applyFiltering,
-                child: const Text('Apply Filtering'),
-              ),
-            ],
+                // Button to generate the polyline based on the current tolerance
+                FloatingActionButton(
+                  onPressed: _updateDrawings,
+                  tooltip: 'Generate Polylines', // Optional tooltip
+                  child: const Icon(Icons.polyline), // Use a polyline icon
+                ),
 
-            const SizedBox(height: 20),
+                // Add a spacer to create some distance
+                const Spacer(flex: 1),
 
-            // New Slider for adjusting polyline simplification tolerance
-            Text('Polyline Tolerance: ${_polylineTolerance.toStringAsFixed(1)}'),
-            Slider(
-              min: 0.1,
-              max: 100.0,
-              divisions: 99,
-              value: _polylineTolerance,
-              label: _polylineTolerance.toStringAsFixed(1),
-              onChanged: (value) {
-                setState(() {
-                  _polylineTolerance = value; // Update polyline tolerance
-                });
-              },
-            ),
-            const SizedBox(height: 10),
-
-            // Button to generate the polyline based on the current tolerance
-            ElevatedButton(
-              onPressed: _generatePolyline,
-              child: const Text('Generate Polylines'),
+              ]
             ),
           ],
         ),
