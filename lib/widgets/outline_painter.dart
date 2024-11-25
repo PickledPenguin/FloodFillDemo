@@ -37,8 +37,9 @@ class OutlinePainter extends CustomPainter {
   final double scaleX;
   final double scaleY;
   final Offset? tapPosition;
+  final bool showRedOutline;
 
-  OutlinePainter(this.outlinePoints, {required this.scaleX, required this.scaleY, this.tapPosition});
+  OutlinePainter(this.outlinePoints, {required this.scaleX, required this.scaleY, this.tapPosition, required this.showRedOutline});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -53,9 +54,11 @@ class OutlinePainter extends CustomPainter {
       ..style = PaintingStyle.stroke;
 
     // Draw the red outline points
-    for (var point in outlinePoints) {
-      final scaledPoint = Offset(point.dx * scaleX, point.dy * scaleY);
-      canvas.drawCircle(scaledPoint, 1.0, paintRed); // Drawing a small circle for each outline point
+    if (showRedOutline) {
+      for (var point in outlinePoints) {
+        final scaledPoint = Offset(point.dx * scaleX, point.dy * scaleY);
+        canvas.drawCircle(scaledPoint, 1.0, paintRed); // Drawing a small circle for each outline point
+      }
     }
 
     // Draw the orange circle if tapPosition is not null

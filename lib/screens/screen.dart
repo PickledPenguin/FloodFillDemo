@@ -28,6 +28,7 @@ class _ImageSelectorScreenState extends State<ImageSelectorScreen> {
   Offset? _tapPosition;  // Position where the user tapped on the image
   List<Offset> _polylinePoints = []; // For polylines
   double _polylineTolerance = 70.0;  // For polyline tolerance
+  bool _showRedOutline = false;
 
   // Variables to control Advanced Settings
   Map<String,double> _polylineToleranceMinMax = {"min": 0.1, "max": 100.0};
@@ -75,14 +76,14 @@ class _ImageSelectorScreenState extends State<ImageSelectorScreen> {
     if (_selectedImage != null && _tapPosition != null) {
       final int x = _tapPosition!.dx.toInt();
       final int y = _tapPosition!.dy.toInt();
-
-      // Call the function to get the outline points based on the selected pixel and tolerance
       final outlinePoints = getOutline(_selectedImage!, x, y, _tolerance);
+
       setState(() {
-        _outlinePoints = outlinePoints;  // Update the list of outline points
+        _outlinePoints = outlinePoints; // Update the list of outline points
       });
     }
   }
+
 
   // Method to filter out smaller clusters of points from the outline points
   List<Offset> filterClusters(List<Offset> points, {int minSize = 20}) {
@@ -186,6 +187,7 @@ class _ImageSelectorScreenState extends State<ImageSelectorScreen> {
                                   scaleX: _imageWidth / _selectedImage!.width,
                                   scaleY: _imageHeight / _selectedImage!.height,
                                   tapPosition: _tapPosition,
+                                  showRedOutline: _showRedOutline
                                 ),
                                 size: Size(imageWidth, imageHeight),
                               ),
@@ -208,18 +210,20 @@ class _ImageSelectorScreenState extends State<ImageSelectorScreen> {
             const SizedBox(height: 20),
 
             // Button to pick an image
-            Center (
-              child:
-                SizedBox(
-                  height: 150,
-                  width: 150,
-                  child:
-                    FloatingActionButton(
-                      onPressed: _pickImage,
-                      tooltip: "Pick Image",
-                      child: const Icon(Icons.image),
+            Row (
+              children: [
+                Expanded(
+                  child: SizedBox(
+                    height: 50,
+                    child:
+                      FloatingActionButton(
+                        onPressed: _pickImage,
+                        tooltip: "Pick Image",
+                        child: const Icon(Icons.image),
+                      ),
                     ),
                 ),
+              ]
             ),
 
             const SizedBox(height: 50),
@@ -305,6 +309,25 @@ class _ImageSelectorScreenState extends State<ImageSelectorScreen> {
 
               ]
             ),
+
+            const SizedBox(height: 20),
+
+            // Checkbox to toggle red outline visibility
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text('Show Edge Detection'),
+                Checkbox(
+                  value: _showRedOutline,
+                  onChanged: (bool? value) {
+                    setState(() {
+                      _showRedOutline = value ?? true; // Update checkbox state
+                    });
+                  },
+                ),
+              ],
+            ),
+
           ],
         ),
       ),
